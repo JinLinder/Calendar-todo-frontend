@@ -25,35 +25,29 @@ const AddEvent = (props)=> {
 
     return (
         <div>
+            <h4>Add new to do list:</h4>
+                <label>Title:</label>
                 <input type="text" placeholder="Add Title" 
                   style={{ width: "20%", marginRight: "10px" }} 
                   value={newEvent.title} onChange={(e) => 
-                  setNewEvent({ ...newEvent, title: e.target.value })} />
- 
+                  setNewEvent({ ...newEvent, title: e.target.value })} /> <br/>
+
+                <label>Start date:</label>
                  <input type="date" id="date" 
                     value={newEvent.start} 
                     onChange={(e) => 
                         setNewEvent({ ...newEvent, start: e.target.value })}/> <br />
-                
+
+                <label>End date:</label>
                 <input type="date" id="date" 
                     value={newEvent.end} 
                     onChange={(e) => 
                         setNewEvent({ ...newEvent, end: e.target.value })}/> <br /> 
 
-                {/* <DatePicker 
-                    placeholderText="Start Date" 
-                    style={{ marginRight: "10px" }} 
-                    selected={newEvent.start} 
-                    onChange={(start) => setNewEvent({ ...newEvent, start })} /> 
-
-                <DatePicker 
-                  placeholderText="End Date" 
-                  selected={newEvent.end} 
-                  onChange={(end) => setNewEvent({ ...newEvent, end })} /> */}
 
                 <button stlye={{ marginTop: "10px" }} 
                   onClick={handleAddEvent}>
-                    Add Event
+                    Add
                 </button>
         </div>
     )

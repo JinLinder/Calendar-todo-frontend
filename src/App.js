@@ -28,9 +28,6 @@ function App() {
     }, [])
 
     // add new event 
-    // useEffect(()=>{
-      
-    // })
     const addEvent = (newEvent) =>{
       setAllEvents([...allEvents, newEvent]);
       console.log("newEvent", newEvent);
@@ -42,22 +39,28 @@ function App() {
       setAllEvents(allEvents.filter(i => i !== event ))
     }
 
+
+     // sort events according to deadline(end)
+     const todoList = allEvents.sort(function (a, b){
+      var c = new Date(a.end);
+      var d = new Date(b.end);
+      return c-d;
+      })
+
   return (
     <div className="App">
-      <h3>My to do list:</h3>
-      {allEvents.map((event)=><ShowTodo key={event.title}
-              allEvents={allEvents}
-              event={event}
-              title={event.title} 
-              end={Object.values(event.end)}
-              id={event._id}
-              deleteEvent={deleteEvent}
-              /> )}
+      <h4>My to do list:</h4>
+        {todoList.map((event)=><ShowTodo key={event.title}
+            allEvents={allEvents}
+            event={event}
+            title={event.title} 
+            end={Object.values(event.end)}
+            id={event._id}
+            deleteEvent={deleteEvent}
+        /> )}
       <AddEvent addEvent={addEvent}/>
       <h1>Calendar</h1>
-      <Mycalendar allEvents={allEvents}/>
-      
-      
+      <Mycalendar allEvents={allEvents}/>      
         
     </div>
   );
