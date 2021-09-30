@@ -45,7 +45,7 @@ function App() {
             event={event}
             title={event.title} 
             end={Object.values(event.end)}
-            id={event.id}
+            id={event._id}
             deleteEvent={deleteEvent}
         /> )}
       <AddEvent addEvent={addEvent}/>
