@@ -1,6 +1,6 @@
 const GetEvent=(cd)=>{
 
-    fetch("http://localhost:5000/event") 
+    fetch("https://intense-sierra-98550.herokuapp.com/event") 
     .then(res => res.json())
     .then( data => {
       console.log("Fetched data: ", data);

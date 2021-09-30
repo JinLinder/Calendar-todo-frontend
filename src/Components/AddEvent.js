@@ -13,7 +13,7 @@ const AddEvent = (props)=> {
         //post data to mongoDB
       console.log("newEvent", newEvent);
        axios
-       .post('http://localhost:5000/event/add', newEvent)
+       .post('https://intense-sierra-98550.herokuapp.com/event/add', newEvent)
        .then(res=> {
         console.log("PostData", res.data)
        })
