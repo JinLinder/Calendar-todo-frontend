@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 //import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from 'axios';
+import {v4 as uuidv4} from 'uuid';
 
 
 const AddEvent = (props)=> {
@@ -30,7 +31,7 @@ const AddEvent = (props)=> {
                 <input type="text" placeholder="Add Title" 
                   style={{ width: "20%", marginRight: "10px" }} 
                   value={newEvent.title} onChange={(e) => 
-                  setNewEvent({ ...newEvent, title: e.target.value })} /> <br/>
+                  setNewEvent({ ...newEvent, title: e.target.value,  id:uuidv4()})} /> <br/>
 
                 <label>Start date:</label>
                  <input type="date" id="date" 

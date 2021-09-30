@@ -1,22 +1,13 @@
 import './App.css';
 import React, { useState, useEffect } from "react";
-import Modal from 'react-modal';
 import Mycalendar from './Components/Mycalendar';
 import GetEvent from './Components/GetEvents';
 import AddEvent from './Components/AddEvent';
 import ShowTodo from './Components/ShowTodo';
 
-// import DeleteDb from './Components/DeleteDb'
-
-Modal.setAppElement('#root');
 function App() {
 
-  const [allEvents, setAllEvents] = useState([
-    // { title: 'event 1', start: '2021-09-01', end: '2021-09-03' },
-    // { title: 'event 2', start: '2021-09-01', end: '2021-09-03' }
-  ]);
-
-  //const [newEvent, setNewEvent] = useState({title: '', start: '', end: ''})
+  const [allEvents, setAllEvents] = useState([]);
 
     //get all old events from mongoDB
     useEffect(()=>{
@@ -39,7 +30,6 @@ function App() {
       setAllEvents(allEvents.filter(i => i !== event ))
     }
 
-
      // sort events according to deadline(end)
      const todoList = allEvents.sort(function (a, b){
       var c = new Date(a.end);
@@ -50,18 +40,17 @@ function App() {
   return (
     <div className="App">
       <h4>My to do list:</h4>
-        {todoList.map((event)=><ShowTodo key={event.title}
+        {todoList.map((event)=><ShowTodo key={event.id}
             allEvents={allEvents}
             event={event}
             title={event.title} 
             end={Object.values(event.end)}
-            id={event._id}
+            id={event.id}
             deleteEvent={deleteEvent}
         /> )}
       <AddEvent addEvent={addEvent}/>
       <h1>Calendar</h1>
       <Mycalendar allEvents={allEvents}/>      
-        
     </div>
   );
 }

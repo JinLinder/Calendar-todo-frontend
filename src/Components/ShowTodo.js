@@ -1,7 +1,6 @@
 import DeleteDb from './DeleteDb';
 import React from 'react'
 
-
 export default function ShowTodo(props) {
     const onSubmit = (evt) => {
         evt.preventDefault();
