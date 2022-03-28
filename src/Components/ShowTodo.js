@@ -10,10 +10,9 @@ export default function ShowTodo(props) {
     }
     return (
         < >
-            <p> Title: {props.title};
-                Deadline: {props.end} 
-                <button onClick={onSubmit}>Finished</button>
-            </p>
+            <p> <strong>Title:</strong>  {props.title} <strong>Deadline:</strong>  {props.end} <button onClick={onSubmit}>Finished</button></p>
+                
+            
         </>
     )
 }

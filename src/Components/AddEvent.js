@@ -26,7 +26,7 @@ const AddEvent = (props)=> {
 
     return (
         <div>
-            <h4>Add new to do list:</h4>
+            <h2>Add new to do list:</h2>
                 <label>Title:</label>
                 <input type="text" placeholder="Add Title" 
                   style={{ width: "20%", marginRight: "10px" }} 
@@ -34,13 +34,13 @@ const AddEvent = (props)=> {
                   setNewEvent({ ...newEvent, title: e.target.value,  id:uuidv4()})} /> <br/>
 
                 <label>Start date:</label>
-                 <input type="date" id="date" 
+                 <input type="datetime-local" id="date" 
                     value={newEvent.start} 
                     onChange={(e) => 
                         setNewEvent({ ...newEvent, start: e.target.value })}/> <br />
 
                 <label>End date:</label>
-                <input type="date" id="date" 
+                <input type="datetime-local" id="date" 
                     value={newEvent.end} 
                     onChange={(e) => 
                         setNewEvent({ ...newEvent, end: e.target.value })}/> <br /> 
