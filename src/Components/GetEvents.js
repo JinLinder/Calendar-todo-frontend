@@ -1,6 +1,6 @@
 const GetEvent=(cd)=>{
 
-    fetch("https://intense-sierra-98550.herokuapp.com/event") 
+    fetch("https://calendar-back-heroku.herokuapp.com/event") 
     .then(res => res.json())
     .then( data => {
       console.log("Fetched data: ", data);
