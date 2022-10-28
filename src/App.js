@@ -9,13 +9,13 @@ import styled from "styled-components";
 const Content = styled.div`
   display: grid;
   grid-template-rows: auto auto;
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 1024px) {
     display: grid;
     grid-template-columns: auto auto;
   };
   .list{
     text-align:center;
-    
+    background-color: #e4e4e4;
   }
 `;
 
@@ -63,7 +63,7 @@ function App() {
             allEvents={allEvents}
             event={event}
             title={event.title}
-            // end={Object.values(event.end)}
+            end={event.end}
             id={event._id}
             deleteEvent={deleteEvent}
           />
