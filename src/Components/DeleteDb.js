@@ -1,8 +1,8 @@
-import axios from 'axios'
+import axios from "axios";
 
-const DeleteDb = (id)=> {
-    axios.delete(`https://calendar-back-heroku.herokuapp.com/event/delete/${id}`)
-        .then(()=>console.log("deleted"))
-}
+const DeleteDb = (id) => {
+  axios
+    .delete(`http://localhost:5000/event/delete/${id}`)
+};
 
-export default DeleteDb
+export default DeleteDb;

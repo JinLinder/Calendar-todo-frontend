@@ -1,9 +1,8 @@
 const GetEvent=(cd)=>{
 
-    fetch("https://calendar-back-heroku.herokuapp.com/event") 
+    fetch("http://localhost:5000/event") 
     .then(res => res.json())
     .then( data => {
-      console.log("Fetched data: ", data);
       cd(data)
     });
 };

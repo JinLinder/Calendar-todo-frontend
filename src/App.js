@@ -25,7 +25,6 @@ function App() {
   //get all old events from mongoDB
   useEffect(() => {
     GetEvent((data) => {
-      console.log("Get events from DB:  ", data);
       setAllEvents(data);
     });
   }, []);
@@ -33,12 +32,10 @@ function App() {
   // add new event
   const addEvent = (newEvent) => {
     setAllEvents([...allEvents, newEvent]);
-    console.log("newEvent", newEvent);
   };
 
   //delete finished event
   const deleteEvent = (event) => {
-    console.log("event from app.js", event);
     setAllEvents(allEvents.filter((i) => i !== event));
   };
 

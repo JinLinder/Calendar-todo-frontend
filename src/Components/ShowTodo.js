@@ -31,13 +31,10 @@ export default function ShowTodo(props) {
     evt.preventDefault();
     DeleteDb(props.id);
     props.deleteEvent(props.event);
-    console.log("props.id", props.id);
   };
+  
   const date = props.end.slice(0, 10);
-  console.log(date);
   const time = props.end.slice(11, 16);
-  console.log(time);
-  console.log(props.end);
   return (
     <TodoItem className="todoItem">
       {props.title}<br/> Due: {date} at {time}

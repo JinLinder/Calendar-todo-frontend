@@ -35,20 +35,16 @@ const AddEvent = (props) => {
   const handleAddEvent = (evt) => {
     evt.preventDefault();
     //post data to mongoDB
-    console.log("newEvent", newEvent);
     if (Date.parse(newEvent.start) > Date.parse(newEvent.end)) {
-      console.log("wrong");
       setErrorMsgTime("Deadline can not be earlier than start date.");
     } else {
       setErrorMsgTime("");
       setNewEvent({ title: "", start: "", end: "" })
       axios
-        .post("https://calendar-back-heroku.herokuapp.com/event/add", newEvent)
+        .post("http://localhost:5000/event/add", newEvent)
         .then((res) => {
-          console.log("PostData", res.data);
         })
         .catch((error) => {
-          console.log("error:", error);
         });
       //add data to state in app.js
       props.addEvent(newEvent);
@@ -69,17 +65,13 @@ const AddEvent = (props) => {
 
   const validation = (e) => {
     let name = e.target.name;
-    console.log(newEvent)
     if (e.target.value === "") {
       if (name === "title") {
         setErrorMsgTitle("Please fill in the title.");
-        console.log("Please fill in the title.");
       } else if (name === "start") {
         setErrorMsgStart("Please fill in the start time.");
-        console.log("Please fill in the start time.");
       } else if (name === "end") {
         setErrorMsgEnd("Please fill in the deadline.");
-        console.log("Please fill in the deadline.");
       }
     } else {
       setErrorMsgTitle("");
@@ -106,7 +98,6 @@ const AddEvent = (props) => {
 
     useEffect(() => {
       const resizeListener = () => {
-        console.log(media.matches);
         setWidth(media.matches);
       };
 
